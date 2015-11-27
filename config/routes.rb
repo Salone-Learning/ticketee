@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -17,6 +18,11 @@ Rails.application.routes.draw do
   resources :projects do
     resources :tickets
   end
+
+  resources :users
+
+  get 'signin', to: "sessions#new"
+  post 'signin', to: "sessions#create"
   # Example resource route with options:
   #   resources :products do
   #     member do
